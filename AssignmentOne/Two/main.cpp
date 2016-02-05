@@ -1,3 +1,5 @@
+/* main.cpp; Provides a template function for insertion sort. */
+
 #include<iostream>
 #include<string>
 #include<vector>
