@@ -1,0 +1,93 @@
+/* Implementation cpp file for the Extensions class. */
+
+#include"Extensions.h"
+
+// Default Constructor.
+template<class T>
+Extensions<T>::Extensions()
+{
+	this->size = 10;
+
+	// Allocate an integer array with $size elements.
+	this->extn = new T[this->size];
+}
+
+// Constructor that accepts a parameter to set the $size.
+template<class T>
+Extensions<T>::Extensions(int s)
+{
+	this->size = s;
+
+	// Allocate an integer array with $size elements.
+	this->extn = new T[this->size];
+}
+
+// Copy Constructor.
+template<class T>
+Extensions<T>::Extensions(const Extensions &obj)
+{
+	// Copy the object's size.
+	this->size = obj.getSize();
+
+	// Initialize the array with $size.
+	this->extn = new T[this->size];
+
+	for(int i = 0; i < this->size; i++) {
+		this->extn[i] = obj.getExtn(i);
+	}
+}
+
+// Destructor.
+template<class T>
+Extensions<T>::~Extensions()
+{
+	this->size = 0;
+	delete[] this->extn;
+	this->extn = nullptr;
+}
+
+// Assignment Operator.
+template<class T>
+Extensions<T>& Extensions<T>::operator=(const Extensions &obj)
+{
+	this->size = obj.getSize();
+
+	this->extn = new T[this->size];
+
+	for(int i = 0; i < this->size; i++) {
+		this->extn[i] = obj.getExtn(i);
+	}
+	return *this;
+}
+
+// Access method to get the size of the extn array.
+template<class T>
+int Extensions<T>::getSize() const
+{
+	return this->size;
+}
+
+// Accessor method to return the extn at the supplied index.
+template<class T>
+T Extensions<T>::getExtn(int i) const
+{
+	// This needs exception handling to detect out of bounds conditions.
+	return this->extn[i];
+}
+
+// Mutator method to set the integer value of an extn.
+template<class T>
+void Extensions<T>::setExtn(int i, T val)
+{
+	// This needs exception handling to detect out of bounds conditions.
+	this->extn[i] = val;
+}
+
+// Print out the extensions.
+template<class T>
+void Extensions<T>::print()
+{
+	for(int i = 0; i < this->size; i++) {
+		cout << "Extension: " << this->extn[i] << endl;
+	}
+}
