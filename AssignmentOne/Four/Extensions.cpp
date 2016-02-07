@@ -69,7 +69,7 @@ int Extensions<T>::getSize() const
 
 // Accessor method to return the extn at the supplied index.
 template<class T>
-T Extensions<T>::getExtn(int i) const
+T Extensions<T>::getValue(int i) const
 {
 	// This needs exception handling to detect out of bounds conditions.
 	return this->extn[i];
@@ -77,10 +77,27 @@ T Extensions<T>::getExtn(int i) const
 
 // Mutator method to set the integer value of an extn.
 template<class T>
-void Extensions<T>::setExtn(int i, T val)
+void Extensions<T>::setValue(int i, T val)
 {
 	// This needs exception handling to detect out of bounds conditions.
 	this->extn[i] = val;
+}
+
+// Mutator method to use insertion sort to sort the Extn array.
+template<class T>
+void Extensions<T>::sort()
+{
+	for (int i = 1; i < this->size; i++) {
+
+        for (int j = i; j > 0; j--) {
+            if (extn[j] < extn[j-1]) {
+                swap(extn[j], extn[j-1]);
+            } else {
+                continue;
+            }
+        }
+    }
+
 }
 
 // Print out the extensions.

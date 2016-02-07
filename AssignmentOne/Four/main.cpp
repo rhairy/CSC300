@@ -1,5 +1,6 @@
 #include<iostream>
 #include<string>
+#include<stdlib.h>
 
 using namespace std;
 
@@ -8,12 +9,16 @@ using namespace std;
 
 int main()
 {
-	Extensions<char> myExtensions;
+	Extensions<int> myExtensions;
 
 	for (int i = 0;i < myExtensions.getSize(); i++) {
-		myExtensions.setExtn(i, i + 97);
+		myExtensions.setValue(i, rand() % 100);
 	}
 
+	cout << "Unsorted: " << endl;
+	myExtensions.print();
+	cout << "Sorted: " << endl;
+	myExtensions.sort();
 	myExtensions.print();
 
 	return 0;

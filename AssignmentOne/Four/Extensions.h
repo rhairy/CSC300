@@ -22,10 +22,11 @@ public:
 	Extensions& operator=(const Extensions &obj);
 	// Accessors:
 	int getSize() const;
-	T getExtn(int i) const;
+	T getValue(int i) const;
 	// Mutators:
-	void setExtn(int i, T val);
+	void setValue(int i, T val);
 	void print();
+	void sort();
 private:
 	T* extn; // Points to an array of extensions dynamically allocated to the size of the private member "size".
 	int size;
