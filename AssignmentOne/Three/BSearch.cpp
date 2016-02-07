@@ -2,6 +2,7 @@
 
 #include<iostream>
 #include<string>
+#include<stdlib.h>
 
 using namespace std;
 
@@ -29,7 +30,7 @@ int bsearch(T a[], int val, int min, int max)
 		}
 		// Found the right answer!
 		else {
-			return a[mid];
+			return mid;
 		}
 
 	} 
@@ -41,9 +42,14 @@ int bsearch(T a[], int val, int min, int max)
 
 int main()
 {
-	int myArray[] = {0, 1, 2, 3, 4, 5};
+	int a[] = {0, 3, 5, 9, 100, 150, 200, 250, 290, 300};
+
+	int search = 200;
+
+	int answer = bsearch(a, search, 0, 10);
 	
-	cout << "Found number " << 6 << " at pos: " << bsearch(myArray, 5, 0, 5) << endl;
+	cout << "Found " << search << " at: " << answer << endl;
+
 
 	return 0;
 }
